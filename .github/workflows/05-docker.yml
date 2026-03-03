@@ -47,9 +47,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: |
-            ${{ env.IMAGE_NAME }}:v${{ steps.get_version.outputs.version }}
-            ${{ env.IMAGE_NAME }}:latest
+          tags: ${{ env.IMAGE_NAME }}:v${{ steps.get_version.outputs.version }},${{ env.IMAGE_NAME }}:latest
 
       - name: Update Docker Hub description
         uses: peter-evans/dockerhub-description@v3
